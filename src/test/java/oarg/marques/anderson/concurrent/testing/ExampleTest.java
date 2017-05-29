@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.marques.anderson.concurrent.testing.ConcurrentTest;
-import org.marques.anderson.concurrent.testing.ConcurrenTestsRule;
+import org.marques.anderson.concurrent.testing.ConcurrentTestsRule;
 
 /**
- * Tests
+ * Concurrent tests examples
  */
 public class ExampleTest {
 
@@ -15,7 +15,7 @@ public class ExampleTest {
      * Create a new TestRule that will be applied to all tests
      */
     @Rule
-    public ConcurrenTestsRule ct = ConcurrenTestsRule.silentTests();
+    public ConcurrentTestsRule ct = ConcurrentTestsRule.silentTests();
 
     /**
      * Tests using 10 threads and make 20 requests. This means until 10 simultaneous requests.
@@ -35,7 +35,7 @@ public class ExampleTest {
     }
 
     @Test(expected = RuntimeException.class)
-    @ConcurrentTest(requests = 2)
+    @ConcurrentTest(requests = 3)
     public void testConcurrentExecutionFail(){
         throw new RuntimeException("Fail");
     }
