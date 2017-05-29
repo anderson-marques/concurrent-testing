@@ -1,37 +1,71 @@
-## Welcome to GitHub Pages
+# concurrent-testing
+Easy TestRule to Load Testing
 
-You can use the [editor on GitHub](https://github.com/anderson-marques/concurrent-testing/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Gettting started
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Add the dependency
+```xml
+    <dependency>
+        <groupId>org.marques.anderson</groupId>
+        <artifactId>concurrent-testing</artifactId>
+        <version>1.0.0</version>
+    </dependency>
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/anderson-marques/concurrent-testing/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+ 
+ ### Use in your TestCases
+ 
+ ```java
+     package oarg.marques.anderson.concurrent.testing;
+     
+     import org.junit.Assert;
+     import org.junit.Rule;
+     import org.junit.Test;
+     import org.marques.anderson.concurrent.testing.ConcurrentTest;
+     import org.marques.anderson.concurrent.testing.ConcurrentTestsRule;
+     
+     /**
+      * Concurrent tests examples
+      */
+     public class ExampleTest {
+     
+         /**
+          * Create a new TestRule that will be applied to all tests
+          */
+         @Rule
+         public ConcurrentTestsRule ct = ConcurrentTestsRule.silentTests();
+     
+         /**
+          * Tests using 10 threads and make 20 requests. This means until 10 simultaneous requests.
+          */
+         @Test
+         @ConcurrentTest(requests = 20, threads = 10)
+         public void testConcurrentExecutionSuccess(){
+             Assert.assertTrue(true);
+         }
+     
+         /**
+          * Tests using 10 threads and make 20 requests. This means until 10 simultaneous requests.
+          */
+         @Test
+         @ConcurrentTest(requests = 200, threads = 10, timeoutMillis = 100)
+         public void testConcurrentExecutionSuccessWaitOnly100Millissecond(){
+         }
+     
+         @Test(expected = RuntimeException.class)
+         @ConcurrentTest(requests = 2)
+         public void testConcurrentExecutionFail(){
+             throw new RuntimeException("Fail");
+         }
+     }
+ ```
+ 
+ #### ConcurrentTestsRule.silentTests()
+  
+  Runs all the tests in silent mode. Without feedback about requests; 
+  
+ #### ConcurrentTestsRule.verboseTests()
+ 
+  Runs all the tests printing executions. With feedback about requests;
+  
+  ### Licence:
+  
