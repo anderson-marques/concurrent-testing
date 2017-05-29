@@ -52,7 +52,7 @@ Easy TestRule to Load Testing
          }
      
          @Test(expected = RuntimeException.class)
-         @ConcurrentTest(requests = 2)
+         @ConcurrentTest(requests = 3)
          public void testConcurrentExecutionFail(){
              throw new RuntimeException("Fail");
          }
@@ -67,5 +67,5 @@ Easy TestRule to Load Testing
  
   Runs all the tests printing executions. With feedback about requests;
   
-  ### Licence:
+  ### Licence: MIT License
   
