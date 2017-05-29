@@ -1,4 +1,4 @@
-package org.marques.anderson.concurrent.testing;
+package org.lite.concurrent.testing;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;

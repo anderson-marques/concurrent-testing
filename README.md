@@ -20,8 +20,8 @@ Easy TestRule to Load Testing
      import org.junit.Assert;
      import org.junit.Rule;
      import org.junit.Test;
-     import org.marques.anderson.concurrent.testing.ConcurrentTest;
-     import org.marques.anderson.concurrent.testing.ConcurrentTestsRule;
+     import ConcurrentTest;
+     import ConcurrentTestsRule;
      
      /**
       * Concurrent tests examples
