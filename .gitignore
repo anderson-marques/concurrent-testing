@@ -3,3 +3,4 @@ concurrent-testing.iml
 target
 .idea
 _config.yml
+*.iml
