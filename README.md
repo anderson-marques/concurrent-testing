@@ -52,7 +52,7 @@ Easy TestRule to Load Testing
          }
      
          @Test(expected = RuntimeException.class)
-         @ConcurrentTest(requests = 3)
+         @ConcurrentTest(requests = 2)
          public void testConcurrentExecutionFail(){
              throw new RuntimeException("Fail");
          }
