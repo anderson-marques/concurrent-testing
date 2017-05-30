@@ -97,9 +97,7 @@ public class ConcurrentTestsRule implements TestRule {
                             });
 
                     long time = (System.currentTimeMillis() - begin);
-                    if (count != requests){
-                        throwable = new AssertionError("Time Exceeded! It was realized " + count +" tests in " + maxTimeWaiting + " milisseconds") ;
-                    } else {
+                    if (verbose){
                         System.out.println(count + " concurrent tests realized in " + time + " milisseconds");
                     }
                 } else {

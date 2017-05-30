@@ -6,7 +6,7 @@
 
     <groupId>org.lite</groupId>
     <artifactId>concurrent-testing</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <url>https://github.com/anderson-marques/concurrent-testing</url>
 
     <licenses>
