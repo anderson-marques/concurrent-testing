@@ -15,7 +15,7 @@ Easy TestRule to Load Testing
  ### Use in your TestCases
  
  ```java
-     package oarg.marques.anderson.concurrent.testing;
+     package org.lite.concurrent.testing;
      
      import org.junit.Assert;
      import org.junit.Rule;
