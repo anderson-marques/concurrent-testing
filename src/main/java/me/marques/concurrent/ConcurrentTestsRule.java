@@ -1,4 +1,4 @@
-package org.lite.concurrent.testing;
+package me.marques.concurrent;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;

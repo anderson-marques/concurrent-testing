@@ -1,4 +1,4 @@
-package org.lite.concurrent.testing;
+package me.marques.concurrent;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;

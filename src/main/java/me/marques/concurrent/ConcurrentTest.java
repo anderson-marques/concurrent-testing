@@ -1,4 +1,4 @@
-package org.lite.concurrent.testing;
+package me.marques.concurrent;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
