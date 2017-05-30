@@ -6,7 +6,7 @@ Easy TestRule to Load Testing
 ### Add the dependency
 ```xml
     <dependency>
-        <groupId>org.marques.anderson</groupId>
+        <groupId>org.lite</groupId>
         <artifactId>concurrent-testing</artifactId>
         <version>1.0.0</version>
     </dependency>
