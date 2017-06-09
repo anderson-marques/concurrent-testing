@@ -1,4 +1,4 @@
-package me.marques.concurrent;
+package io.marques.anderson.concurrent;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
@@ -51,7 +51,6 @@ public class ConcurrentTestsRule implements TestRule {
             private Throwable throwable;
             private int count;
             private long begin;
-            private boolean complete;
 
             @Override
             public void evaluate() throws Throwable {
@@ -60,7 +59,6 @@ public class ConcurrentTestsRule implements TestRule {
                 throwable = null;
                 count = 0;
                 begin = System.currentTimeMillis();
-                complete = false;
 
                 if (concurrentTest != null) {
                     final int requests = concurrentTest.requests();

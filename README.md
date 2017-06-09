@@ -67,5 +67,10 @@ Easy TestRule to Load Testing
  
   Runs all the tests printing executions. With feedback about requests;
   
+  ### Versions:
+  
+  1.0.0 - Release
+  1.0.1 - Thread submission using ScheduleExecutor.
+  
   ### Licence: MIT License
   

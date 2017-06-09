@@ -1,4 +1,4 @@
-package me.marques.concurrent;
+package io.marques.anderson.concurrent;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

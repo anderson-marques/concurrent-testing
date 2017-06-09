@@ -1,5 +1,7 @@
-package me.marques.concurrent;
+package io.marques.anderson.concurrent;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -35,15 +37,18 @@ class ConcurrentExecutor {
     }
 
     void execute(Callable<Void> callable) throws AssertionError {
-        ExecutorService threadPool = Executors.newFixedThreadPool(threads);
+        ExecutorService threadPool = Executors.newScheduledThreadPool(threads);
+        List<Callable<Void>> callableList = new ArrayList<>();
         for (int i = 0; i < requests; i++) {
-            threadPool.submit(callable);
+            callableList.add(callable);
         }
-        threadPool.shutdown();
         try {
+            threadPool.invokeAll(callableList);
             threadPool.awaitTermination(maxTimeWaiting, MILLISECONDS);
         } catch (InterruptedException e) {
             throw new AssertionError(" Timeout exceeded! -> " + maxTimeWaiting);
+        } finally {
+            threadPool.shutdown();
         }
     }
 }
